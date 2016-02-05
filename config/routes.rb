@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   get 'signup'  => 'users#new'
 
+  get 'show'    => 'users#show'
+
+  resources :users    # endows app with all RESTful actions for the Users resource
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

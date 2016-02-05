@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   validates(:password, presence: true, length: {minimum: 6} )
 
-  has_secure_password   # method allows us to save a securely hashed password_digest attribute to the database, supplies us with the virtual attrbutes password and password_confirmation with presence validations upon object creation and another validation requiring that they match, and an authenticate method that returns the user when the password is correct, false otherwise
+  has_secure_password   # method allows us to save a securely hashed password_digest attribute to the database, supplies us with the virtual attributes password and password_confirmation, with presence validations (password+conf. must be present) upon object creation and another validation requiring that they match, and an authenticate method that returns the user when the password is correct, false otherwise
                         # requires the corresponding model (User) to have an attribute called password_digest (accomplished through a migration)
 
 end

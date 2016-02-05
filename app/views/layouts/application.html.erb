@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- reminder for Samantha: this is the HTML that applies to every page in the application -->
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
@@ -10,8 +11,12 @@
 <body>
   <%= render 'layouts/header' %>  <!-- insert contents of _header.html.erb -->
   <div class="container">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %> <!-- insert contents of _footer.html.erb -->
+    <%= debug(params) if Rails.env.development? %>    <!-- desplay debug information only if we're in development environment  -->
   </div>
-  <%= render 'layouts/footer' %> <!-- insert contents of _footer.html.erb -->
 </body>
 </html>

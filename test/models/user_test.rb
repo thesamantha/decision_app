@@ -9,31 +9,31 @@ class UserTest < ActiveSupport::TestCase
     @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
   end
 
-  test "user should be valid" do
+  test "user should be valid" do    #make sure that if a test fails, it's not because the user was invalid to begin with (check that setup sets a valid user up)
     assert @user.valid?
   end
 
-  test "name should be present" do
+  test "name should be present" do  #blank names (even if made of characters, i.e. spaces/tabs) won't cut it
     @user.name = "    "
     assert_not @user.valid?
   end
 
-  test "email should be present" do
+  test "email should be present" do   #same deal as with names
     @user.email = "   "
     assert_not @user.valid?
   end
 
-  test "name should be short enough" do
+  test "name should be short enough" do   # 1 <= name <= 50 (we've already proofed that the name has at least one character, here we ensure it's <= 50)
     @user.name = "a" * 51
     assert_not @user.valid?
   end
 
-  test "email should be short enough" do
+  test "email should be short enough" do    #email has to fit in database...
     @user.email  = "a" * 256
     assert_not @user.valid?
   end
 
-  test "should accept valid email addresses" do
+  test "should accept valid email addresses" do   #make sure test isn't erroreneous (sp?); valid email addresses should pass through silently
     valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]  #all legit emails so shouldn't turn up any errors
     valid_addresses.each do |valid_address|   #iterate through valid_addresses
       @user.email = valid_address           #assign each address to @user to test @user's validity
@@ -51,8 +51,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email addresses should be unique" do
-    dup_user = @user.dup
-    dup_user.email = @user.email.upcase
+    dup_user = @user.dup    
+    dup_user.email = @user.email.upcase   #TODO explain this...why do we care about the case? thought it was all case insensitive?
     @user.save
     assert_not dup_user.valid?
   end
