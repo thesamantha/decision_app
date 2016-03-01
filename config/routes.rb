@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
+  get     'sessions/new'
 
-  root 'static_pages#home'
+  get     'users/new'
 
-  get 'help'    => 'static_pages#help'
+  root    'static_pages#home'
 
-  get 'about'   => 'static_pages#about'
+  get     'help'    => 'static_pages#help'
 
-  get 'contact' => 'static_pages#contact'
+  get     'about'   => 'static_pages#about'
 
-  get 'signup'  => 'users#new'
+  get     'contact' => 'static_pages#contact'
 
-  get 'show'    => 'users#show'
+  get     'signup'  => 'users#new'
+
+  get     'login'   =>  'sessions#new'    #named route: login_path
+
+  post    'login' =>  'sessions#create'   #named route: login_path
+
+  delete  'logout'  =>  'sessions#destroy'  #named route: logout_path
 
   resources :users    # endows app with all RESTful actions for the Users resource
 

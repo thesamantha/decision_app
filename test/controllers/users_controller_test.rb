@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
 
-  base_title = "Ruby on Rails Tutorial Sample App"
+  base_title = "Decision App"
 
   test "should get new" do
     get :new
