@@ -5,6 +5,7 @@
 
 body {
   padding-top: 60px;
+  background-image: image-url("borrowed-background.png");
 }
 
 section {
@@ -54,6 +55,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: #fff;
 }
 
 h2 {
@@ -62,12 +64,13 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: #fff;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: #fff;
 }
 
 /* header */
@@ -84,7 +87,7 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
+  color: #0066ff;
   text-decoration: none;
 }
 
@@ -98,11 +101,11 @@ footer {
 }
 
 footer a {
-  color: #555;
+  color: #fff;
 }
 
 footer a:hover {
-  color: #222;
+  color: #0066ff;
 }
 
 footer small {
