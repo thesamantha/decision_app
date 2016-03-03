@@ -1,6 +1,3 @@
-uby on Rails Tutorial: sample application
+Decision App
 
-This is the sample application for the
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+Utilizes data entered by the user to generate diagrams illustrating the logistics of competing decisions.
